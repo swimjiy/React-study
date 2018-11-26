@@ -1,11 +1,12 @@
 import React from 'react';
-import VideoListItem from './VideoItem'
+import VideoItem from './VideoItem'
+import './Video.css'
 
 const VideoList = (props) => {
 
   const videoItems = props.videos.map(video => {
     return (
-      <VideoListItem
+      <VideoItem
         onVideoSelect = {props.onVideoSelect}
         key = {video.etag}
         video = {video}
@@ -14,7 +15,7 @@ const VideoList = (props) => {
   });
 
   return (
-    <ul className="card-deck">
+    <ul className="card-columns">
       {videoItems}
     </ul>
   )
