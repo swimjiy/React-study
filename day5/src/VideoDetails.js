@@ -1,26 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react'
 
+class VideoDetails extends Component {
+    constructor(props) {
+        super(props)
+        this.state = undefined
+    }
 
-const VideoDetail = ({ video }) => {
-  if (!video){
-    return <div>Loading...</div>;
-  }
+    componentWillReceiveProps(props) {
+        this.setState(props.video)
+    }
 
+    render() {
+        // const title = this.state.snippets.title
+        // const description = this.state.snippet.description
+        // const videoId = this.state.id.videoId
+        // const videoUrl = "https://youtube.com/embed/${videoId}"
 
-  const videoId = video.id.videoId;
-  const url = `https://www.youtube.com/embed/${videoId}`;
+        return (
+            <div className="card">
+                {/* <iframe className="embed-responsive embed-responsive-16by9" src={videoUrl}></iframe>
+                <h4 className="card-title">{this.state.snippet.title}</h4>
+                <p className="card-text">{this.state.snippet.title}</p> */}
+            </div>
+        )
+    }
+}
 
-  return (
-    <div className="video-detail col-md-8">
-      <div className="embed-responsive embed-responsive-16by9">
-        <iframe className="embed-responsive-item" src={url}></iframe>
-      </div>
-      <div className="details">
-        <div>{video.snippet.title}</div>
-        <div>{video.snippet.description}</div>
-      </div>
-    </div>
-  );
-};
-
-export default VideoDetail;
+export default VideoDetails;
