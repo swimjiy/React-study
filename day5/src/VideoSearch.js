@@ -5,7 +5,7 @@ class VideoSearch extends Component {
     constructor(props) {
         super(props)
         this.state = { 
-            term: '소녀시대' 
+            term: '' 
         }
     }
     

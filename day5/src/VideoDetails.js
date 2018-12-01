@@ -1,29 +1,31 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class VideoDetails extends Component {
-    constructor(props) {
-        super(props)
-        this.state = undefined
-    }
 
-    componentWillReceiveProps(props) {
-        this.setState(props.video)
-    }
-
-    render() {
-        // const title = this.state.snippets.title
-        // const description = this.state.snippet.description
-        // const videoId = this.state.id.videoId
-        // const videoUrl = "https://youtube.com/embed/${videoId}"
-
+const VideoDetails = ({video}) => {
+    console.log(video)
+    if (!video) {
         return (
-            <div className="card">
-                {/* <iframe className="embed-responsive embed-responsive-16by9" src={videoUrl}></iframe>
-                <h4 className="card-title">{this.state.snippet.title}</h4>
-                <p className="card-text">{this.state.snippet.title}</p> */}
-            </div>
+            <div>Loading...</div>
         )
     }
+    let videoId = video.id.videoId;
+    let url = 'https://www.youtube.com/embed/' + videoId;
+    let publishedAt = video.snippet.publishedAt;
+    let videoDate = publishedAt.substring(0, 10)
+
+    return (
+    <div className="video-detail mt-5">
+        <div className="embed-responsive embed-responsive-4by3">
+            <iframe className="embed-responsive-item" src={url}></iframe>
+        </div>
+        <div className="video-body">
+            <h5 className="video-title mb-3">{video.snippet.title}</h5>
+            <p className="video-writter">작성자 : {video.snippet.channelTitle}</p>
+            <p className="video-date">등록일 : {videoDate}</p>
+            <p className="video-desc">{video.snippet.description}</p>
+        </div>
+    </div>
+    );
 }
 
 export default VideoDetails;

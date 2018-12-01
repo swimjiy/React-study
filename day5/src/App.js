@@ -12,28 +12,31 @@ class App extends Component {
 
     this.state = {
       data: [],
-      selectVideo: null,
-      term: 'yes'
+      selectedVideo: null,
+      term: ''
     }
     
+    this.videoSearch('소녀시대')
   }
   
   videoSearch = (term) => {
-    this.setState({
-      term: term
-    })
     YTSearch({ key: API_KEY, term: term }, data => {
       this.setState({ 
         data: data,
-        selectedVideo : data[0]
+        selectedVideo : data[0],
+        term: term
       });
     });
+  }
+
+  onVideoSelect(selectedVideo) {
+    this.setState({selectedVideo})
   }
 
   render() {
     return (
       <div className="App">
-        <header className=" pt-3">
+        <header>
           <div className="navbar">
             <div className="container justify-content-between">
               <a href="http://sumim-project.surge.sh/" className="navbar-brand text-white"><h2>Youtube List</h2></a>
@@ -44,8 +47,11 @@ class App extends Component {
         <main className="container pt-3">
           <VideoList 
             videos={this.state.data} 
-            onVideoSelect={selectedVideo => this.setState({selectedVideo})}/>
-          <VideoDetails video={this.state.selectedVideo}/>
+            onVideoSelect={(selectedVideo) => this.onVideoSelect(selectedVideo)}
+          />
+          <VideoDetails 
+            video={this.state.selectedVideo}
+          />
         </main>
       </div>
     );

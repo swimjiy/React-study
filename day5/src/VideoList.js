@@ -7,7 +7,7 @@ const VideoList = (props) => {
   const videoItems = props.videos.map(video => {
     return (
       <VideoItem
-        onVideoSelect = {this.props.onVideoSelect}
+        onVideoSelect = {props.onVideoSelect}
         key = {video.etag}
         video = {video}
       />
@@ -15,9 +15,9 @@ const VideoList = (props) => {
   });
 
   return (
-    <ul className="card-columns">
+    <div className="row">
       {videoItems}
-    </ul>
+    </div>
   )
 
 };
