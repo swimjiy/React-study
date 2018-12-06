@@ -1,44 +1,44 @@
-## 리액트 6주차 (2018.12.06)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-1. 리액트 폼 다루는 방법
+## Available Scripts
 
+In the project directory, you can run:
 
+### `npm start`
 
-### 리액트 폼 다루는 방법
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-#### input 폼 처리
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
 
-onChange()를 이용해 변경사항 감지 -> 단방향 바인딩 : 상태가 뷰를 갱신
+### `npm test`
 
-일반 input에서는 onChange() 랑 onSubmit() 두 개를 많이 사용 (P61Basic.js)
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-콤보박스의 경우에도 onCHange()로 변경사항 캐치하고, 디폴트 값은 select태그에 option value값을 주가한다.
+### `npm run build`
 
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
 
-#### 라디오박스 폼 처리
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-checked할 떄 state로 true/false값을 찾는 것이 체크박스와 다른 점
+### `npm run eject`
 
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-#### textatea, password 폼 처리
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-onInput() 사용할 경우 defaultvalue 사용이 안됨. 이유는 모름.
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-리액트에서는 가급적 onChange()를 사용하고, onInput()는 리액트 네이티브??일 때 사용하는 것이 좋다.
+## Learn More
 
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-
-#### Azure 
-
-마소 무료 클라우드 서비스
-
-vsc에서 azure storage 확장프로그램 설치
-
-surge는 https://는 유료라서 이걸로 한 번 해보자
-
-
-
-
-
+To learn React, check out the [React documentation](https://reactjs.org/).
