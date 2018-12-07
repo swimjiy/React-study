@@ -18,6 +18,8 @@ class App extends Component {
     
     this.videoSearch('소녀시대')
   }
+
+
   
   videoSearch = (term) => {
     YTSearch({ key: API_KEY, term: term }, data => {
@@ -29,14 +31,16 @@ class App extends Component {
     });
   }
 
+  // 이걸 async로 바꿔보자
+
   onVideoSelect(selectedVideo) {
     this.setState({selectedVideo})
   }
 
   render() {
     return (
-      <div className="App">
-        <header>
+      <div className="App p">
+        <header className=" pt-3">
           <div className="navbar">
             <div className="container justify-content-between">
               <a href="http://sumim-project.surge.sh/" className="navbar-brand text-white"><h2>Youtube List</h2></a>
@@ -50,7 +54,12 @@ class App extends Component {
             onVideoSelect={(selectedVideo) => this.onVideoSelect(selectedVideo)}
           />
           <VideoDetails 
-            video={this.state.selectedVideo}
+            videoId={
+              this.state.selectedVideo === null 
+                ? "Loading"
+                : this.state.selectedVideo.id.videoId
+            }
+            // video={this.state.selectedVideo}
           />
         </main>
       </div>
