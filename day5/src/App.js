@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import YTSearch from 'youtube-api-search';
-import VideoList from './VideoList';
-import VideoSearch from './VideoSearch';
-import VideoDetails from './VideoDetails';
-import './App.css'
+import VideoList from './component/VideoList';
+import VideoSearch from './component/VideoSearch';
+import VideoDetails from './component/VideoDetails';
+// import './styles/App.css'
+import './styles/video.scss';
+import logo from './images/logo.png';
+import userImg from './images/default.png';
 const API_KEY = "AIzaSyC_SMfYoEP1JbCZFCHr8dgEqirsu1df_MM";
 
 class App extends Component {
@@ -16,11 +19,18 @@ class App extends Component {
       term: ''
     }
     
-    this.videoSearch('소녀시대')
+    this.videoSearch('레드벨벳')
   }
 
-
-  
+  // async videoSearch (term){
+  //   await YTSearch({ key: API_KEY, term: term }, data => {
+  //     this.setState({
+  //       data: data,
+  //       selectedVideo: data[0],
+  //       term: term
+  //     })
+  //   })
+  // }
   videoSearch = (term) => {
     YTSearch({ key: API_KEY, term: term }, data => {
       this.setState({ 
@@ -31,36 +41,43 @@ class App extends Component {
     });
   }
 
-  // 이걸 async로 바꿔보자
-
   onVideoSelect(selectedVideo) {
     this.setState({selectedVideo})
   }
 
   render() {
     return (
-      <div className="App p">
-        <header className=" pt-3">
-          <div className="navbar">
-            <div className="container justify-content-between">
-              <a href="http://sumim-project.surge.sh/" className="navbar-brand text-white"><h2>Youtube List</h2></a>
-              <VideoSearch onCreate={this.videoSearch}/>
+      <div className="main-container">
+        <header className="header">
+          <div className="container navbar">
+            <div className="col-2">
+              <a href="http://sumim-project.surge.sh/" className="navbar-brand text-white"><img src={logo} className="logo" alt="logo" /></a>
+            </div>
+            <VideoSearch onCreate={this.videoSearch}/>
+            <div className="haeder-user text-right col-2 d-none d-lg-block">
+              <a href="#" className="user-name mr-3">user name</a>
+              <a href="#" className="user-img">
+                <img src={userImg} alt="user image" />
+              </a>
             </div>
           </div>
         </header>
-        <main className="container pt-3">
-          <VideoList 
-            videos={this.state.data} 
-            onVideoSelect={(selectedVideo) => this.onVideoSelect(selectedVideo)}
-          />
-          <VideoDetails 
-            videoId={
-              this.state.selectedVideo === null 
-                ? "Loading"
-                : this.state.selectedVideo.id.videoId
-            }
-            // video={this.state.selectedVideo}
-          />
+        <main className="main container-flex">
+          <div className="container p-3">
+            <div className="row">
+              <VideoDetails 
+                videoId={
+                  this.state.selectedVideo === null 
+                    ? "Loading"
+                    : this.state.selectedVideo.id.videoId
+                }
+              />
+              <VideoList 
+                videos={this.state.data} 
+                onVideoSelect={(selectedVideo) => this.onVideoSelect(selectedVideo)}
+              />
+            </div>
+          </div>
         </main>
       </div>
     );
