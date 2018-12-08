@@ -1,44 +1,18 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 토이프로젝트 - youtube 뷰 페이지
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+제작기간 : 1달 (공부와 함께 제작)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+규모 : 반응형
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+제작 툴 : React, Bootstrap4, Sass
 
-### `npm test`
+작업 : 디자인 , 퍼블리싱, API호출
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+크로스 브라우징 : ie9+, Chrome, Safari, Firefox
 
-### `npm run build`
+설명 : 검색창에 키워드를 검색하면 Youtube API를 불러와서 우측 목록 영역에 출력한다.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+출력된 유튜브 영상 중 가장 첫번째 영상의 iframe, 제목, 내용 등의 데이터를 메인 뷰에 출력하고, 우측 리스트를 클릭하면 해당 데이터가 메인 뷰에 제공된다.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
