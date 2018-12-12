@@ -61,7 +61,7 @@ class P66Textarea extends Component {
                     <input
                         type="password"
                         value={this.state.password}
-                        // onChange={this.handlePwdChange}
+                        onChange={this.handlePwdChange}
                         onInput={this.handlePwdInput}
                     />
                     <br />
